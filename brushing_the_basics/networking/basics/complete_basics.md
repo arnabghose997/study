@@ -176,3 +176,45 @@ Ephemeral ports are used to allow multiple clients to connect to a server simult
   - If its not there in the local cache, it checks the Local DNS server (it's usually your ISP).
   - If its not present there, it checks in the Root Server
 
+### Transport Layer
+
+- It handles the transportation of information between the network and the application (Note: Network to Network transmission is handled in Network Layer)
+- It takes care of congestion control in the layer. It is built in TCP
+- **Checksums**
+  - It ensures the integrity of data packets
+- **Timers**
+  - It indicates whether the packed is recieved on the other end timely.
+- **Sequence Numbers**
+  - Every data packet has a unique sequence numbers which prevents packet redundancy
+
+
+#### UDP (User Datagram Protocol)
+
+- Connectionless protocol
+- Data may or may not be delivered
+- Data may change mid-travel
+- Data maybe in different order
+- UDP does uses checksums, but doesn't do much about corrupted data
+- UDP packet:
+  - Source Port (2 bytes)
+  - Destination Port (2 bytes)
+  - Length of datagram (2 bytes)
+  - Checksum (2 bytes)
+  - Data (2^16 - 8) bytes {Total UDP packet size is 2^16 bytes}
+
+- Use cases: DNS, Video Conference, Online Gaming
+- ` sudo tcpdump -c 5` command to check the number of packets recieved by a device. The `-c` flag is used to specify the number of packets we want to recieve.
+
+
+#### TCP (Transmission Control Protocol)
+
+- Application layer sends a lot of raw data -> TCP segments this data by dividing it into chunks and adding headers. 
+- It may also collect the data from the Network layer (Scenario of the receiving end), and aggregate these chunks and sends to Application Layer
+- Congestion Control
+- It maintains the order of data using sequence numbers.
+
+**3-Way Handshake**
+
+- Client sends a `connection request` to the Server. It carries a flag called `SYNC` and a sequence number which will be a random number in order to make guessing difficult
+- Server sends an `ACK` (Acknowledgement) flag, `SYNC` flag and it sends a sequence number which is a result of some calculation applied on the sequence number from Client.
+- Client sends the acknowledges the signal from the Server, and thus connection is established.
