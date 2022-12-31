@@ -1,5 +1,6 @@
 # study
 
-![😺️](assets/cat-read.gif)
+Hub for programming related notes 📘️
 
-This repo acts as a hub for notes on programming related topics
+<img src="https://media.tenor.com/1cL5fzcjpaQAAAAd/laptop.gif" width="300px">
+
