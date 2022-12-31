@@ -218,3 +218,47 @@ Ephemeral ports are used to allow multiple clients to connect to a server simult
 - Client sends a `connection request` to the Server. It carries a flag called `SYNC` and a sequence number which will be a random number in order to make guessing difficult
 - Server sends an `ACK` (Acknowledgement) flag, `SYNC` flag and it sends a sequence number which is a result of some calculation applied on the sequence number from Client.
 - Client sends the acknowledges the signal from the Server, and thus connection is established.
+
+### Networking Layer
+
+- Router to Router communication
+- **Fowarding Table**: Usually the packet contains the destination network address. Once the packet is recieved by the router, it check in its forwarding table, and send the packet to appropriate router. It only contains one path defined
+- Say, we have an IP address: `192.168.2.30`. Here `192.168.2` is the network address, and `30` is the device address which is connected to the said network
+
+**Control Plane**
+
+- There are used to build Routing tables.
+- Think of graph where Routers are nodes, and the link between routers are edges.
+- **Static Routing**
+  - Adding addresses manually
+  - Pretty time consuming
+- **Dynamic Routing**
+  - It changes according to changes in the network
+
+#### Internet Protocol (IP)
+
+- It used for logical Network addressing (IP addresses)
+- There are two types of IP addresses: IPv4 and IPv6
+- IPv4
+  - 32 bits, 4 words
+- IPv6
+  - 128 bits
+
+- Classes of IP addresses
+  - Class A - `0.0.0.0` to `127.255.255.255`
+  - Class B - `128.0.0.0` to `191.255.255.255`
+  - Class C - `192.0.0.0` to `223.255.255.255`
+  - Class D - `224.0.0.0` to `239.255.255.255`
+  - Class E - `240.0.0.0` to `255.255.255.255`
+
+#### Subnet Mask
+
+A subnet mask is a number that defines the relationship between the network address and the host (device) address of a network. It is used to divide an IP address into two parts: the network portion and the host portion. The network portion identifies the network that the device is on, while the host portion identifies the specific device on that network.
+
+The subnet mask is typically written in the same format as an IP address, using four numbers separated by periods. Each number can be a value from 0 to 255. For example, a common subnet mask is 255.255.255.0, which indicates that the first three octets (numbers) of the IP address represent the network portion, and the last octet represents the host portion.
+
+Subnet masks are used to create subnetworks, or subnets, which are smaller networks within a larger network. Subnetting allows an organization to divide a large network into smaller, more manageable networks, and can be used to improve security, performance, and scalability.
+
+For example, an organization with a large network might use subnetting to create separate subnets for different departments or locations, or to separate the network into segments for different types of devices or traffic. In this way, subnet masks allow organizations to better control and manage their network resources.
+
+#### Packets in Network Layer
