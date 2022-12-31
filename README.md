@@ -1,7 +1,5 @@
 # study
 
-A Single-Point Destination for all my study notes
+![😺️](assets/cat-read.gif)
 
-## Directory Purpose
-
-`brushing_the_basics` - Notes related to programming languages and frameworks
+This repo acts as a hub for notes on programming related topics
